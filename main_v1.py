@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
 # Delete previous output 
-# !hdfs dfs -rm -r -skipTrash output
+!hdfs dfs -rm -r -skipTrash output
 
 # Create Spark session
 spark = SparkSession\
@@ -16,6 +16,9 @@ spark = SparkSession\
 
 # Read input CSV from HDFS
 df0 = spark.read.csv('input', header=True)
+
+# Reset metrics for query planning/analysis time
+spark.sparkContext._jvm.org.apache.spark.sql.catalyst.rules.RuleExecutor.resetMetrics()
 
 # Derive new columns
 df1 = df0.withColumn("col_d", 
@@ -43,6 +46,9 @@ df20 = df19.withColumn("col_w", lit("tpvzm"))
 df21 = df20.withColumn("col_x", lit("tehyp"))
 df22 = df21.withColumn("col_y", lit("lnaae"))
 df23 = df22.withColumn("col_z", lit("jdwfn"))
+
+# Dump metrics for query planning/analysis time
+spark.sparkContext._jvm.org.apache.spark.sql.catalyst.rules.RuleExecutor.dumpTimeSpent()
 
 # Output to HDFS
 df23.write.csv('output')
