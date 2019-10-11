@@ -2,9 +2,11 @@ from pyspark.sql.functions import *
 import string
 import random
 
+
 def random_string(length=10):
   letters = string.ascii_lowercase
   return ''.join(random.choice(letters) for i in range(length))
+
 
 def derive_new_dataframe(df0):
   df1 = df0.withColumn("col_d", 
