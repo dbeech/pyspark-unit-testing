@@ -1,9 +1,8 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
 from functions import derive_new_dataframe
 
 # Delete previous output 
-!hdfs dfs -rm -r -skipTrash output
+# !hdfs dfs -rm -r -skipTrash output
 
 # Create Spark session
 spark = SparkSession\

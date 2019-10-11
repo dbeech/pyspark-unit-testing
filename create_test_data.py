@@ -1,11 +1,6 @@
 
 import random
-import string
-
-def random_string(length=10):
-    """Generate a random string of fixed length """
-    letters = string.ascii_lowercase
-    return ''.join(random.choice(letters) for i in range(length))
+from functions import random_string
 
 for i in range(0,10):
   f = open("test" + str(i) + ".csv","w+")

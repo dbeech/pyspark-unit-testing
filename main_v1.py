@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 
 # Delete previous output 
-!hdfs dfs -rm -r -skipTrash output
+# !hdfs dfs -rm -r -skipTrash output
 
 # Create Spark session
 spark = SparkSession\
@@ -23,6 +23,26 @@ df1 = df0.withColumn("col_d",
                        .otherwise("BBB"))
 df2 = df1.withColumn("col_e", lit(-99))
 df3 = df2.withColumn("col_f", length("col_a"))
+df4 = df3.withColumn("col_g", lit("frmbq"))
+df5 = df4.withColumn("col_h", lit("qwjlc"))
+df6 = df5.withColumn("col_i", lit("xmzgs"))
+df7 = df6.withColumn("col_j", lit("htlof"))
+df8 = df7.withColumn("col_k", lit("evass"))
+df9 = df8.withColumn("col_l", lit("hvrmy"))
+df10 = df9.withColumn("col_m", lit("svswp"))
+df11 = df10.withColumn("col_n", lit("lfzdm"))
+df12 = df11.withColumn("col_o", lit("nkmpn"))
+df13 = df12.withColumn("col_p", lit("canun"))
+df14 = df13.withColumn("col_q", lit("ibrfa"))
+df15 = df14.withColumn("col_r", lit("icxyf"))
+df16 = df15.withColumn("col_s", lit("tonhp"))
+df17 = df16.withColumn("col_t", lit("ikggy"))
+df18 = df17.withColumn("col_u", lit("wedtt"))
+df19 = df18.withColumn("col_v", lit("phhhs"))
+df20 = df19.withColumn("col_w", lit("tpvzm"))
+df21 = df20.withColumn("col_x", lit("tehyp"))
+df22 = df21.withColumn("col_y", lit("lnaae"))
+df23 = df22.withColumn("col_z", lit("jdwfn"))
 
 # Output to HDFS
-df3.write.csv('output')
+df23.write.csv('output')

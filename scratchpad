@@ -1,7 +1,0 @@
-def derive_new_dataframe(df0):
-  df1 = df0.select('*',
-    when(col("col_a") == "aaa", "AAA").otherwise("BBB").alias("col_d"),
-    lit(-99).alias("col_e"),
-    length("col_b").alias("col_f")                
-  )
-  return df1
