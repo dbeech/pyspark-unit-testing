@@ -6,7 +6,7 @@ from functions import derive_new_dataframe, derive_new_column
 schema = ["col_a", "col_b", "col_c"]
 
 
-@pytest.fixture
+@pytest.fixture(scope="module")
 def spark():
   spark = SparkSession.builder.master('local[2]').getOrCreate()
   yield spark
