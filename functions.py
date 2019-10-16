@@ -9,9 +9,7 @@ def random_string(length=10):
 
 
 def derive_new_dataframe(df0):
-  df1 = df0.withColumn("col_d", 
-                       when(col("col_a") == "aaa", "AAA")
-                       .otherwise("BBB"))
+  df1 = df0.withColumn("col_d", derive_new_column())
   df2 = df1.withColumn("col_e", lit(-99))
   df3 = df2.withColumn("col_f", length("col_a"))
   df4 = df3.withColumn("col_g", lit("frmbq"))
@@ -37,4 +35,6 @@ def derive_new_dataframe(df0):
   return df23
 
 
-  
+def derive_new_column():
+  return when(col('col_a') == 'aaa', 'AAA').otherwise('BBB')
+
