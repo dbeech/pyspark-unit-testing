@@ -27,11 +27,12 @@
 #   return df1
 
 import string
+
 import functions
 
 if __name__ == '__main__':
-    for i in range(6,26):
-      c = "col_" + string.ascii_letters[i]
-      val = functions.random_string(5)
-      print("df{} = df{}.withColumn(\"{}\", lit(\"{}\"))".format(i-2, i-3, c, val))
-      print("  lit(\"{}\").alias(\"{}\")".format(val,c))
+  for i in range(6, 26):
+    c = "col_" + string.ascii_letters[i]
+    val = functions.random_string(5)
+    print("df{} = df{}.withColumn(\"{}\", lit(\"{}\"))".format(i - 2, i - 3, c, val))
+    print("  lit(\"{}\").alias(\"{}\")".format(val, c))

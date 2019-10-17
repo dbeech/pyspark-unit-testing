@@ -36,7 +36,9 @@ df1 = df0.select('*',
   random_string_udf().alias("col_h"),
   random_string_udf().alias("col_i"),
   random_string_udf().alias("col_j")
-).select('*',
+)\
+.persist()\
+.select('*',
   when(length("col_g") > 10, when(length("col_g") % 2 == 0, "LONG,EVEN").otherwise("LONG,ODD"))
     .otherwise(when(length("col_g") % 2 == 0, "SHORT,EVEN").otherwise("SHORT,ODD")).alias("col_k"),
   when(length("col_h") > 10, when(length("col_h") % 2 == 0, "LONG,EVEN").otherwise("LONG,ODD"))
